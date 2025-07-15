@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    function oblicz() {
+        let ip = [192, 168, 1, 145]; // input
+        let maskS = 25; // input
+        
+        let networkIp
+        let 
+        
+        let binarnieIp = ipToBinary(ip)
+        let maskaS = 0;
+        for (let oktet of maskaD) {
+            maskaS += policzZnak(oktet.toString(2), "1");
+        }
+      alert("Wynik: " + binarnieIp + "/" + maskaS);
+    }
+    function policzZnak(tekst, znak) {
+        let wystapienia = 0;
+        for (let z of tekst) {
+            if (z === znak) {
+                wystapienia++;
+            }
+        }
+        return wystapienia;
+    }
+    function ipToBinary(ip) {
+        let binarnie = [];
+        for (let oktet of ip) {
+            binarnie.push(oktet.toString(2).padStart(8, "0"));
+        }
+        return binarnie;
+    }
+    function binaryToIp(binarnie) {
+        let ip = [];
+        for (let oktet of binarnie) {
+            ip.push(parseInt(oktet, 2));
+        }
+        return ip;
+    }
+    function maskSToL(maskS){
+        let maskL = [];
+        let lastOktet = maskS % 8;
+        maskS -= lastOktet;
+        for (let i = 0; i < maskS / 8; i++) {
+            maskaL.push("11111111");
+        }
+        let lastOktetB = ""
+        for (let i = 0; i < lastOktet; i++) {
+            lastOktetB += "1";
+        }
+        for (let i = 0; i < 8 - lastOktet; i++) {
+            lastOktetB += "0";
+        }
+        if (maskL.length != 4) {
+            for (let i = 0; i < 4 - maskL.length; i++) {
+                maskaL.push("00000000");
+            }
+        }
+        return maskaL;
+    }
+    
+  </script>
+</head>
+<body>
+  <button onclick="oblicz()">Oblicz</button>
+</body>
+</html>

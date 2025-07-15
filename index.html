@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulator adresów IP</title>
+  <script>
+    function oblicz() {
+      const ip = document.getElementById("ip").value;
+      const mask = parseInt(document.getElementById("mask").value);
+      // tu można dodać logikę np. obliczania podsieci
+      alert("Tu możesz dodać wynik obliczeń dla IP: " + ip + "/" + mask);
+    }
+  </script>
+</head>
+<body>
+  <h1>Kalkulator adresów IP</h1>
+  <input id="ip" placeholder="192.168.1.1">
+  <input id="mask" placeholder="24">
+  <button onclick="oblicz()">Oblicz</button>
+</body>
+</html>
